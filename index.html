@@ -1,319 +1,615 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michele Caselli — Publications</title>
-  <meta name="description" content="Publications of Michele Caselli. Links to journal versions, DOIs, arXiv, and BibTeX." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Michele Caselli is a postdoctoral researcher working in geometric analysis, calculus of variations, and nonlinear and nonlocal partial differential equations.">
+  <meta name="color-scheme" content="light dark">
+  <title>Michele Caselli | Mathematics</title>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #f7f6f2;
+      --surface: #ffffff;
+      --text: #20201e;
+      --muted: #67645f;
+      --accent: #345f56;
+      --accent-soft: #e7efec;
+      --border: #d8d5ce;
+      --shadow: 0 16px 40px rgba(28, 35, 32, 0.08);
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      text-decoration-thickness: 0.14em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      z-index: 10;
+      padding: 0.65rem 1rem;
+      transform: translateY(-120%);
+      background: var(--text);
+      color: var(--surface);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+      padding: 4.5rem 0 3rem;
+    }
+
+    header {
+      padding-bottom: 2.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      margin: 0 0 1.4rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.65rem, 4vw, 2.15rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .lede {
+      max-width: 730px;
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.5vw, 1.28rem);
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1rem;
+      margin-top: 1.65rem;
+    }
+
+    .profile-links a,
+    .paper-links a {
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    main section {
+      padding: 2.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .research-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .research-summary p {
+      margin: 0;
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topics li,
+    .status {
+      display: inline-block;
+      padding: 0.22rem 0.58rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.025em;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .publication {
+      padding: 1.2rem 1.25rem 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .publication h3 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .publication h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.18em;
+    }
+
+    .authors,
+    .venue {
+      margin: 0.4rem 0 0;
+    }
+
+    .authors {
+      color: var(--muted);
+    }
+
+    .venue {
+      font-size: 0.94rem;
+    }
+
+    .status {
+      margin-left: 0.35rem;
+      vertical-align: 0.08em;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    .paper-links a::after {
+      content: " ↗";
+      font-weight: 400;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+      justify-content: space-between;
+      padding-top: 1.6rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        padding-top: 2.75rem;
+      }
+
+      .research-summary {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .publication {
+        padding: 1rem;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #171a18;
+        --surface: #202522;
+        --text: #f0f1ed;
+        --muted: #b9bdb6;
+        --accent: #9bc8bd;
+        --accent-soft: #293a35;
+        --border: #3a403c;
+        --shadow: none;
+      }
+    }
+
+    @media print {
+      :root {
+        --background: #ffffff;
+        --surface: #ffffff;
+        --text: #000000;
+        --muted: #333333;
+        --accent: #000000;
+        --accent-soft: #ffffff;
+        --border: #bbbbbb;
+        --shadow: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michele Caselli",
+    "jobTitle": "Postdoctoral researcher in mathematics",
+    "email": "mailto:michele.caselli@sns.it",
+    "url": "https://sites.google.com/sns.it/michelecaselli/home",
+    "sameAs": [
+      "https://orcid.org/0009-0008-0217-561X",
+      "https://scholar.google.com/citations?user=MUJ8oHAAAAAJ",
+      "https://arxiv.org/search/math?searchtype=author&query=Caselli%2C+M",
+      "https://cvgmt.sns.it/person/4255/",
+      "https://profiles.sydney.edu.au/michele.caselli"
+    ],
+    "affiliation": [
+      {
+        "@type": "Organization",
+        "name": "The University of Sydney"
+      },
+      {
+        "@type": "Organization",
+        "name": "Princeton University"
+      }
+    ],
+    "knowsAbout": [
+      "geometric analysis",
+      "calculus of variations",
+      "geometric measure theory",
+      "nonlocal minimal surfaces",
+      "fractional partial differential equations",
+      "phase transitions"
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
 
+  <div class="page">
+    <header>
+      <p class="eyebrow">Geometric analysis · Calculus of variations</p>
+      <h1>Michele Caselli</h1>
+      <p class="lede">
+        I am a postdoctoral researcher in mathematics, currently affiliated with
+        the University of Sydney and Princeton University. My work lies at the
+        intersection of geometric analysis, calculus of variations, and nonlinear
+        partial differential equations.
+      </p>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Michele Caselli",
-  "identifier": "https://orcid.org/0009-0008-0217-561X",
-  "url": "https://sites.google.com/sns.it/michelecaselli/home",
-  "sameAs": [
-    "https://scholar.google.com/citations?user=MUJ8oHAAAAAJ",
-    "https://arxiv.org/search/math?searchtype=author&query=Caselli,+M"
-  ],
-  "affiliation": [
-    { "@type": "Organization", "name": "Scuola Normale Superiore" },
-    { "@type": "Organization", "name": "The University of Sydney" }
-  ],
-  "knowsAbout": [
-    "geometric analysis",
-"elliptic PDEs",
-"calculus of variations",
-"geometric measure theory",
-"currents and varifolds",
-"fractional perimeter",
-"nonlocal minimal surfaces",
-"fractional Sobolev spaces",
-"stability and minimal cones",
-"fractional Laplacian on manifolds",
-"Caffarelli–Silvestre extension",
-"singular integral operators",
-"Gamma-convergence",
-"sphere-valued Sobolev maps",
-"vortex lines",
-"min-max methods",
-"phase transitions",
-"Ginzburg-Landau model",
-"Allen-Cahn equation",
-"obstacle problems",
-"free boundary problems"
-  ]
-}
-</script>
+      <nav class="profile-links" aria-label="Profiles and contact">
+        <a href="mailto:michele.caselli@sns.it">Email</a>
+        <a href="https://profiles.sydney.edu.au/michele.caselli">Sydney profile</a>
+        <a href="https://scholar.google.com/citations?user=MUJ8oHAAAAAJ">Google Scholar</a>
+        <a href="https://orcid.org/0009-0008-0217-561X">ORCID</a>
+        <a href="https://arxiv.org/search/math?searchtype=author&amp;query=Caselli%2C+M">arXiv</a>
+        <a href="https://cvgmt.sns.it/person/4255/">CVGMT</a>
+        <a href="./publications.bib" download>BibTeX</a>
+      </nav>
+    </header>
 
+    <main id="content">
+      <section aria-labelledby="research-title">
+        <div class="research-summary">
+          <div>
+            <h2 id="research-title">Research</h2>
+            <p>
+              I study variational and geometric problems involving nonlocal energies.
+              Current themes include fractional perimeter and nonlocal minimal surfaces,
+              fractional Sobolev spaces on manifolds, phase-transition models,
+              sphere-valued Sobolev maps, and regularity questions for elliptic obstacle problems.
+            </p>
+          </div>
 
+          <ul class="topics" aria-label="Research topics">
+            <li>Geometric analysis</li>
+            <li>Nonlocal PDEs</li>
+            <li>Geometric measure theory</li>
+            <li>Phase transitions</li>
+            <li>Regularity theory</li>
+          </ul>
+        </div>
+      </section>
 
+      <section aria-labelledby="published-title">
+        <div class="section-heading">
+          <h2 id="published-title">Published papers</h2>
+          <p class="section-note">Published and online-first articles</p>
+        </div>
 
-  
-  <h1>Michele Caselli — Publications</h1>
+        <ol class="publication-list">
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.4171/AIHPC/189">A nonlocal approximation of the area in codimension two</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Mattia Freguglia, Nicola Picenni</p>
+              <p class="venue"><em>Annales de l'Institut Henri Poincaré C, Analyse non linéaire</em>, 2026 <span class="status">Online first</span></p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.4171/AIHPC/189">DOI</a>
+                <a href="https://arxiv.org/abs/2406.13696">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/6632/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <p>
-    Website: <a href="https://sites.google.com/sns.it/michelecaselli/home">Google Site</a> ·
-    arXiv author page: <a href="https://arxiv.org/search/math?searchtype=author&query=Caselli,+M"> arXiv </a> ·
-    Google Scholar: <a href="https://scholar.google.com/citations?user=MUJ8oHAAAAAJ">profile</a>
-    ORCID: <a href="https://orcid.org/0009-0008-0217-561X">0009-0008-0217-561X</a>
-  </p>
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.1016/j.jde.2026.114332">Saddle solution to the complex Ginzburg–Landau system in three dimensions</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Nicola Picenni</p>
+              <p class="venue"><em>Journal of Differential Equations</em> 467 (2026), Article 114332</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1016/j.jde.2026.114332">DOI</a>
+                <a href="https://arxiv.org/abs/2509.13935">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/7299/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <p>
-    Download BibTeX: <a href="./publications.bib">publications.bib</a>
-  </p>
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.4171/JEMS/1785">Yau's conjecture for nonlocal minimal surfaces</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Enric Florit-Simon, Joaquim Serra</p>
+              <p class="venue"><em>Journal of the European Mathematical Society</em>, 2026 <span class="status">Online first</span></p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.4171/JEMS/1785">DOI</a>
+                <a href="https://arxiv.org/abs/2306.07100">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/6081/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-   <hr />
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.1016/j.na.2025.113828">Stable <i>s</i>-minimal cones in ℝ<sup>2</sup> are flat for <i>s</i> ∼ 0</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong></p>
+              <p class="venue"><em>Nonlinear Analysis</em> 259 (2025), Article 113828</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1016/j.na.2025.113828">DOI</a>
+                <a href="https://arxiv.org/abs/2412.06318">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/6891/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <section>
-  <h2>Research areas</h2>
-  <p>
-    Geometric analysis; calculus of variations; nonlocal minimal surfaces; fractional perimeter;
-    obstacle problems; Γ-convergence; Ginzburg–Landau; phase transitions; regularity theory.
-  </p>
-</section>
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.1007/s00208-024-02894-w">Fractional Sobolev spaces on Riemannian manifolds</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Enric Florit-Simon, Joaquim Serra</p>
+              <p class="venue"><em>Mathematische Annalen</em> 390.4 (2024), 6249–6314</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1007/s00208-024-02894-w">DOI</a>
+                <a href="https://arxiv.org/abs/2402.04076">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/6398/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.2422/2036-2145.202309_037">Asymptotics as <i>s</i> → 0<sup>+</sup> of the fractional perimeter on Riemannian manifolds</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Luca Gennaioli</p>
+              <p class="venue"><em>Annali della Scuola Normale Superiore di Pisa, Classe di Scienze</em> 40 (2024)</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.2422/2036-2145.202309_037">DOI</a>
+                <a href="https://arxiv.org/abs/2306.11590">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/6090/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <hr />
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.1051/cocv/2021017">Regularity results for a class of obstacle problems with (<i>p</i>,<i>q</i>)-growth conditions</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Michela Eleuteri, Antonia Passarelli di Napoli</p>
+              <p class="venue"><em>ESAIM: Control, Optimisation and Calculus of Variations</em> 27 (2021), Article 19</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1051/cocv/2021017">DOI</a>
+                <a href="https://arxiv.org/abs/1907.08527">arXiv</a>
+              </div>
+            </article>
+          </li>
 
-  <h2>Journal publications</h2>
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.1016/j.jde.2020.06.015">Regularity results for solutions to obstacle problems with Sobolev coefficients</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Andrea Gentile, Raffaella Giova</p>
+              <p class="venue"><em>Journal of Differential Equations</em> 269.10 (2020), 8308–8330</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.1016/j.jde.2020.06.015">DOI</a>
+                <a href="https://arxiv.org/abs/1910.04506">arXiv</a>
+              </div>
+            </article>
+          </li>
 
-  <article>
-  <h3>Lipschitz continuity results for a class of obstacle problems</h3>
-  <p>
-    <strong>Benassi, Caselli</strong> (2020) — <em>Atti Accad. Naz. Lincei Rend. Lincei Mat. Appl.</em>,
-    <strong>31</strong>(1), 191–210 — DOI:
-    <a href="https://doi.org/10.4171/rlm/885">10.4171/rlm/885</a>
-  </p>
+          <li class="publication">
+            <article>
+              <h3><a href="https://doi.org/10.4171/RLM/885">Lipschitz continuity results for a class of obstacle problems</a></h3>
+              <p class="authors">Carlo Benassi, <strong>Michele Caselli</strong></p>
+              <p class="venue"><em>Rendiconti Lincei – Matematica e Applicazioni</em> 31.1 (2020), 191–210</p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.4171/RLM/885">DOI</a>
+                <a href="https://arxiv.org/abs/2210.06318">arXiv</a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "name": "Lipschitz continuity results for a class of obstacle problems",
-    "author": [
-      { "@type": "Person", "name": "Carlo Benassi" },
-      { "@type": "Person", "name": "Michele Caselli", "identifier": "https://orcid.org/0009-0008-0217-561X" }
-    ],
-    "datePublished": "2020",
-    "isPartOf": {
-      "@type": "Periodical",
-      "name": "Atti Accad. Naz. Lincei Rend. Lincei Mat. Appl."
-    },
-    "volumeNumber": "31",
-    "issueNumber": "1",
-    "pagination": "191-210",
-    "identifier": [
-      { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.4171/rlm/885" },
-      { "@type": "PropertyValue", "propertyID": "MR", "value": "4082935" }
-    ],
-    "sameAs": "https://doi.org/10.4171/rlm/885",
-    "url": "https://doi.org/10.4171/rlm/885"
-  }
-  </script>
-</article>
+      <section aria-labelledby="accepted-title">
+        <div class="section-heading">
+          <h2 id="accepted-title">Accepted</h2>
+        </div>
 
+        <ol class="publication-list">
+          <li class="publication">
+            <article>
+              <h3><a href="https://arxiv.org/abs/2503.14142">Coercivity and Γ-convergence of the <i>p</i>-energy of sphere-valued Sobolev maps</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Mattia Freguglia, Nicola Picenni</p>
+              <p class="venue">Accepted in <em>Communications in Partial Differential Equations</em> <span class="status">Accepted</span></p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2503.14142">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/7035/">CVGMT</a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
 
-  <article>
-    <h3>Regularity results for solutions to obstacle problems with Sobolev coefficients</h3>
-    <p><strong>Caselli, Gentile, Giova</strong> — <em>Journal of Differential Equations</em> 269(10), 8308–8330 (2020)</p>
-    <p>DOI: <a href="https://doi.org/10.1016/j.jde.2020.06.015">10.1016/j.jde.2020.06.015</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Regularity results for solutions to obstacle problems with Sobolev coefficients",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Andrea Gentile"},{"@type":"Person","name":"Raffaella Giova"}],
-      "datePublished":"2020",
-      "identifier":"https://doi.org/10.1016/j.jde.2020.06.015",
-      "url":"https://doi.org/10.1016/j.jde.2020.06.015",
-      "isPartOf":{"@type":"Periodical","name":"Journal of Differential Equations"}
-    }
-    </script>
-  </article>
+      <section aria-labelledby="preprints-title">
+        <div class="section-heading">
+          <h2 id="preprints-title">Preprints</h2>
+        </div>
 
-  <article>
-    <h3>Regularity results for a class of obstacle problems with p,q-growth conditions</h3>
-    <p><strong>Caselli, Eleuteri, Passarelli di Napoli</strong> — <em>ESAIM: COCV</em> 27, 19 (2021)</p>
-    <p>DOI: <a href="https://doi.org/10.1051/cocv/2021017">10.1051/cocv/2021017</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Regularity results for a class of obstacle problems with p, q-growth conditions",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Michela Eleuteri"},{"@type":"Person","name":"Antonia Passarelli di Napoli"}],
-      "datePublished":"2021",
-      "identifier":"https://doi.org/10.1051/cocv/2021017",
-      "url":"https://doi.org/10.1051/cocv/2021017",
-      "isPartOf":{"@type":"Periodical","name":"ESAIM: Control, Optimisation and Calculus of Variations"}
-    }
-    </script>
-  </article>
+        <ol class="publication-list">
+          <li class="publication">
+            <article>
+              <h3><a href="https://arxiv.org/abs/2607.00810">Another look at a notion of fractional mass in codimension two</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Mattia Freguglia, Nicola Picenni</p>
+              <p class="venue">Preprint, 2026</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2607.00810">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/7836/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <article>
-    <h3>Fractional Sobolev spaces on Riemannian manifolds</h3>
-    <p><strong>Caselli, Florit-Simon, Serra</strong> — <em>Mathematische Annalen</em> 390(4), 6249–6314 (2024)</p>
-    <p>DOI: <a href="https://doi.org/10.1007/s00208-024-02894-w">10.1007/s00208-024-02894-w</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Fractional Sobolev spaces on Riemannian manifolds",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Enric Florit-Simon"},{"@type":"Person","name":"Joaquim Serra"}],
-      "datePublished":"2024",
-      "identifier":"https://doi.org/10.1007/s00208-024-02894-w",
-      "url":"https://doi.org/10.1007/s00208-024-02894-w",
-      "isPartOf":{"@type":"Periodical","name":"Mathematische Annalen"}
-    }
-    </script>
-  </article>
+          <li class="publication">
+            <article>
+              <h3><a href="https://arxiv.org/abs/2603.29823">A new Duhamel-type principle with applications to geometric (in)equalities</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong>, Luca Gennaioli</p>
+              <p class="venue">Preprint, 2026</p>
+              <div class="paper-links">
+                <a href="https://arxiv.org/abs/2603.29823">arXiv</a>
+                <a href="https://cvgmt.sns.it/paper/7623/">CVGMT</a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
 
-  <article>
-    <h3>Stable s-minimal cones in R² are flat for s ~ 0</h3>
-    <p><strong>Michele Caselli</strong> — <em>Nonlinear Analysis</em> 259, 113828 (2025)</p>
-    <p>DOI: <a href="https://doi.org/10.1016/j.na.2025.113828">10.1016/j.na.2025.113828</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Stable s-minimal cones in R² are flat for s ~ 0",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"}],
-      "datePublished":"2025",
-      "identifier":"https://doi.org/10.1016/j.na.2025.113828",
-      "url":"https://doi.org/10.1016/j.na.2025.113828",
-      "isPartOf":{"@type":"Periodical","name":"Nonlinear Analysis"}
-    }
-    </script>
-  </article>
+      <section aria-labelledby="other-title">
+        <div class="section-heading">
+          <h2 id="other-title">Notes and thesis</h2>
+        </div>
 
-  <article>
-  <h3>Asymptotics as s → 0⁺ of the fractional perimeter on Riemannian manifolds</h3>
-  <p><strong>Caselli, Gennaioli</strong> (2024) — Annali della Scuola Normale Superiore di Pisa, Classe di Scienze, 40 — DOI:
-    <a href="https://doi.org/10.2422/2036-2145.202309_037">10.2422/2036-2145.202309_037</a>
-  </p>
+        <ol class="publication-list">
+          <li class="publication">
+            <article>
+              <h3><a href="https://cvgmt.sns.it/media/doc/paper/6788/NMS_lecture_notesV2.pdf">Geometric features of nonlocal minimal surfaces</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong></p>
+              <p class="venue">Lecture notes, 2024</p>
+              <div class="paper-links">
+                <a href="https://cvgmt.sns.it/media/doc/paper/6788/NMS_lecture_notesV2.pdf">PDF</a>
+                <a href="https://cvgmt.sns.it/paper/6788/">CVGMT</a>
+              </div>
+            </article>
+          </li>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "name": "Asymptotics as s → 0⁺ of the fractional perimeter on Riemannian manifolds",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "Michele Caselli"
-      },
-      {
-        "@type": "Person",
-        "name": "Luca Gennaioli"
-      }
-    ],
-    "datePublished": "2024",
-    "isPartOf": {
-      "@type": "Periodical",
-      "name": "Annali della Scuola Normale Superiore di Pisa, Classe di Scienze."
-    },
-    "volumeNumber": "40",
-    "identifier": [
-      {
-        "@type": "PropertyValue",
-        "propertyID": "DOI",
-        "value": "10.2422/2036-2145.202309_037"
-      }
-    ],
-    "sameAs": "https://doi.org/10.2422/2036-2145.202309_037",
-    "url": "https://doi.org/10.2422/2036-2145.202309_037"
-  }
-  </script>
-</article>
+          <li class="publication">
+            <article>
+              <h3><a href="https://hdl.handle.net/11384/159790">Nonlocal phase transitions in codimension-one: diffuse approximation, stability and asymptotics</a></h3>
+              <p class="authors"><strong>Michele Caselli</strong></p>
+              <p class="venue">PhD thesis, Scuola Normale Superiore, 2025</p>
+              <div class="paper-links">
+                <a href="https://hdl.handle.net/11384/159790">Repository</a>
+                <a href="https://cvgmt.sns.it/paper/7406/">CVGMT</a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+    </main>
 
-
-  <hr />
-
-  <h2>Preprints (arXiv)</h2>
-
-
-  <article>
-    <h3>Yau's conjecture for nonlocal minimal surfaces</h3>
-    <p><strong>Caselli, Florit-Simon, Serra</strong> (2023) — arXiv: <a href="https://arxiv.org/abs/2306.07100">2306.07100</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Yau's conjecture for nonlocal minimal surfaces",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Enric Florit-Simon"},{"@type":"Person","name":"Joaquim Serra"}],
-      "datePublished":"2023",
-      "identifier":[{"@type":"PropertyValue","propertyID":"arXiv","value":"2306.07100"}],
-      "url":"https://arxiv.org/abs/2306.07100",
-      "isPartOf":{"@type":"Periodical","name":"arXiv"}
-    }
-    </script>
-  </article>
-
-
-  <article>
-    <h3>A nonlocal approximation of the area in codimension two</h3>
-    <p><strong>Caselli, Freguglia, Picenni</strong> (2024) — arXiv: <a href="https://arxiv.org/abs/2406.13696">2406.13696</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"A nonlocal approximation of the area in codimension two",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Mattia Freguglia"},{"@type":"Person","name":"Nicola Picenni"}],
-      "datePublished":"2024",
-      "identifier":[{"@type":"PropertyValue","propertyID":"arXiv","value":"2406.13696"}],
-      "url":"https://arxiv.org/abs/2406.13696",
-      "isPartOf":{"@type":"Periodical","name":"arXiv"}
-    }
-    </script>
-  </article>
-
-  <article>
-    <h3>Coercivity and Γ-convergence of the p-energy of sphere-valued Sobolev maps</h3>
-    <p><strong>Caselli, Freguglia, Picenni</strong> (2025) — arXiv: <a href="https://arxiv.org/abs/2503.14142">2503.14142</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Coercivity and Γ-convergence of the p-energy of sphere-valued Sobolev maps",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Mattia Freguglia"},{"@type":"Person","name":"Nicola Picenni"}],
-      "datePublished":"2025",
-      "identifier":[{"@type":"PropertyValue","propertyID":"arXiv","value":"2503.14142"}],
-      "url":"https://arxiv.org/abs/2503.14142",
-      "isPartOf":{"@type":"Periodical","name":"arXiv"}
-    }
-    </script>
-  </article>
-
-  <article>
-    <h3>Saddle solution to the complex Ginzburg–Landau system in three dimensions</h3>
-    <p><strong>Caselli, Picenni</strong> (2025) — arXiv: <a href="https://arxiv.org/abs/2509.13935">2509.13935</a></p>
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"ScholarlyArticle",
-      "name":"Saddle solution to the complex Ginzburg–Landau system in three dimensions",
-      "author":[{"@type":"Person","name":"Michele Caselli","identifier":"https://orcid.org/0009-0008-0217-561X"},{"@type":"Person","name":"Nicola Picenni"}],
-      "datePublished":"2025",
-      "identifier":[{"@type":"PropertyValue","propertyID":"arXiv","value":"2509.13935"}],
-      "url":"https://arxiv.org/abs/2509.13935",
-      "isPartOf":{"@type":"Periodical","name":"arXiv"}
-    }
-    </script>
-  </article>
-
-  <hr />
-
-  <h2>Other items</h2>
-  <ul>
-   <li><strong>Geometric features of nonlocal minimal surfaces</strong> (2024). Notes (PDF): <a href="https://cvgmt.sns.it/media/doc/paper/6788/NMS_lecture_notes.pdf">NMS_lecture_notes.pdf</a></li>
-
-    <li><strong>Nonlocal phase transitions in codimension-one: diffuse approximation, stability, and asymptotics</strong> (2025). PhD thesis (PDF): <a href="https://hdl.handle.net/11384/159790">PhD_thesis</a> </li>
-  </ul>
-
+    <footer>
+      <p>Last updated August 2026.</p>
+      <p><a href="./publications.bib" download>Download the complete BibTeX file</a></p>
+    </footer>
+  </div>
 </body>
 </html>
